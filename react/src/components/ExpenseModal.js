@@ -3,7 +3,7 @@ import { Button, Header, Image, Modal, Icon } from "semantic-ui-react";
 import "../styles/IncomeModal.css";
 
 const ModalModalExample = () => (
-  <div className="income-modal">
+  <div className="expense-modal">
     <Modal
       trigger={
         <Button size="small">
@@ -12,7 +12,7 @@ const ModalModalExample = () => (
       }
       size="tiny"
     >
-      <Modal.Header>Income</Modal.Header>
+      <Modal.Header>Expenses</Modal.Header>
       <Modal.Content>
         <Modal.Description>
           <input className="modal-input" type="text" placeholder="Name" />
