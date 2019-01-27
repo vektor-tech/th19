@@ -8,6 +8,25 @@ import IncomeModal from "./IncomeModal";
 import ExpenseModal from "./ExpenseModal";
 import "../styles/App.css";
 
+const calculateNetWorth = ({ assets, liabilities, expenses, income }) => {
+  let total = 0;
+  for (let i = 0; i < assets.length; i++) {
+    total += assets[i].cash.value;
+  }
+  for (let i = 0; i < income.length; i++) {
+    total += income[i].value;
+  }
+
+  for (let i = 0; i < liabilities.length; i++) {
+    total -= liabilities[i].loan.value;
+  }
+  for (let i = 0; i < expenses.length; i++) {
+    total -= expenses[i].value;
+  }
+
+  return total;
+};
+
 export default () => (
   <div>
     <Query query={HELLO_QUERY} pollInterval={500}>
@@ -19,6 +38,11 @@ export default () => (
         if (error) {
           return <div>An unexpected error occurred</div>;
         }
+        let currNetWorth = calculateNetWorth(data.user);
+        console.log(currNetWorth);
+        data.user.yearlyHistory[
+          data.user.yearlyHistory.length - 1
+        ].value = currNetWorth;
         return (
           <div className="app-root">
             <Header />
