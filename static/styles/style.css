@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css?family=Play|Poppins");
+
+html {
+    font-family: "Play", sans-serif;
+    padding: 20px;
+
+}
+
+.card {
+    text-align: center;
+    font-size: 25px;
+    height: 300px;
+}
+
+.ac {
+    width: 200px;
+}
