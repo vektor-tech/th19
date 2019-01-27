@@ -1,0 +1,44 @@
+html {
+  margin: 0 auto;
+  max-width: 1000px;
+  text-align: center;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  align-items: stretch;
+}
+
+.header-text {
+  font-size: 42px;
+  font-weight: 400;
+}
+
+.header-icon {
+  text-align: right;
+  margin-left: auto;
+  font-size: 24px;
+}
+
+.header-icon:hover {
+  opacity: 0.3;
+  transform: scale(1.05);
+}
+
+.app-root {
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+}
+
+.graph-hero {
+  margin: 0 auto;
+}
+
+.intro {
+  font-size: 32px;
+  text-align: left;
+  margin-left: 20%;
+}

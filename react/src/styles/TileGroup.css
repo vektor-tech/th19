@@ -1,0 +1,10 @@
+.tile-group {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.my-card {
+  /* vertical-align: middle; */
+  margin: 8px;
+}
