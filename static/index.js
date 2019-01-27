@@ -95,6 +95,24 @@ Vue.component('business-card', {
     }
 })
 
+// CASH-CARD
+Vue.component('cash-card', {
+    props: ['title', 'content'],
+    template: `<v-layout>
+    <v-flex sm12 offset-sm0>
+        <v-card class="card">
+            <v-card-title>
+                <h1>{{title}}</h1>
+            </v-card-title>
+            <h2>$ {{this.$parent.cash}}</h2>
+        </v-card>
+    </v-flex>
+</v-layout>`,
+    data: function () {
+        return {}
+    }
+})
+
 // NET-WORTH GRAPH
 Vue.component('net-worth-graph', {
     props: ['title', 'content'],
@@ -106,7 +124,7 @@ Vue.component('net-worth-graph', {
             </v-card-title>
             <line-chart :data="this.$parent.lineData"></line-chart>
         </v-card>
-        <pie-chart :data="this.$parent.pieData" class="pie-chart"></pie-chart>
+        
     </v-flex>
 </v-layout>`,
     data: function () {
@@ -122,6 +140,7 @@ new Vue({
             income: 2500,
             investment: 80000,
             business: 12000,
+            cash: 3100,
 
             input_expense_toggle: true,
 
