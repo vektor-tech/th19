@@ -2,12 +2,12 @@ type User {
   id: ID! @unique
   username: String!
   password: String!
-  assets: [Asset!]!
-  liabilities: [Liability!]!
-  income: [Income!]!
-  expenses: [Expense!]!
-  yearlyHistory: [NetWorth!]! # @relation(name: "netWorthRelation")
-  #dailyHistory: [NetWorth!]! @relation(name: "netWorthRelation")
+  assets: [Asset!]
+  liabilities: [Liability!]
+  income: [Income!]
+  expenses: [Expense!]
+  yearlyHistory: [NetWorth!] # @relation(name: "netWorthRelation")
+  #dailyHistory: [NetWorth!] @relation(name: "netWorthRelation")
 }
 
 type NetWorth {
