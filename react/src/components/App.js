@@ -4,6 +4,8 @@ import { Query } from "react-apollo";
 import NetWorthGraph from "./NetWorthGraph";
 import Tile from "./Tile";
 import Header from "./Header";
+import IncomeModal from "./IncomeModal";
+import ExpenseModal from "./ExpenseModal";
 import "../styles/App.css";
 
 class App extends Component {
@@ -43,6 +45,8 @@ class App extends Component {
             );
           }}
         </Query>
+        <IncomeModal />
+        <ExpenseModal />
       </div>
     );
   }
