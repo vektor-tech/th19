@@ -1,0 +1,77 @@
+type User {
+  id: ID! @unique
+  username: String!
+  password: String!
+  assets: [Asset!]!
+  liabilities: [Liability!]!
+  income: [Income!]!
+  expenses: [Expense!]!
+  yearlyHistory: [NetWorth!]! # @relation(name: "netWorthRelation")
+  #dailyHistory: [NetWorth!]! @relation(name: "netWorthRelation")
+}
+
+type NetWorth {
+  # id: ID! @relation(name: "netWorthRelation") @unique
+  value: Int!
+  timestamp: DateTime!
+}
+
+type Asset {
+  cash: Cash
+  investment: Investment
+  car: Car
+}
+
+type Liability {
+  loan: Loan
+}
+
+type Income {
+  name: String!
+  value: Int!
+  timestamp: DateTime!
+}
+
+type Expense {
+  name: String!
+  value: Int!
+  timestamp: DateTime!
+}
+
+type Cash {
+  name: String!
+  value: Int!
+  timestamp: DateTime!
+}
+
+type Investment {
+  ticker: String!
+  name: String!
+  cost: Int!
+  shares: Int!
+  timestamp: DateTime!
+}
+
+type Car {
+  make: String!
+  model: String!
+  year: Int!
+  vin: String!
+  timestamp: DateTime!
+  value: Int!
+}
+
+type Loan {
+  type: LoanType!
+  apr: Float! # x1000
+  name: String!
+  value: Int!
+  initial: Int! # principal
+  timestamp: DateTime!
+}
+
+enum LoanType {
+  CREDIT
+  CAR
+  HOME
+}
