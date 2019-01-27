@@ -14,7 +14,7 @@ export default () => (
       {({ loading, error, data }) => {
         console.log(data);
         if (loading) {
-          return <div>Loading</div>;
+          return <div>Loading...</div>;
         }
         if (error) {
           return <div>An unexpected error occurred</div>;
@@ -32,19 +32,23 @@ export default () => (
               {data.user &&
                 data.user.assets &&
                 data.user.assets.map((item, i) => (
-                  <Tile key={i} item={item.cash} />
+                  <Tile key={i} item={item.cash} type={"Cash"} />
                 ))}
               {data.user &&
                 data.user.liabilities &&
                 data.user.liabilities.map((item, i) => (
-                  <Tile key={i} item={item.loan} negative />
+                  <Tile key={i} item={item.loan} type={"Credit"} negative />
                 ))}
               {data.user && data.user.income && (
-                <Tile item={data.user.income[data.user.income.length - 1]} />
+                <Tile
+                  item={data.user.income[data.user.income.length - 1]}
+                  type={"Income"}
+                />
               )}
               {data.user && data.user.expenses && (
                 <Tile
                   item={data.user.expenses[data.user.expenses.length - 1]}
+                  type={"Expense"}
                   negative
                 />
               )}
