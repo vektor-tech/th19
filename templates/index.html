@@ -5,15 +5,34 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/ant-design-vue@1.3.3/dist/antd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
+
+    <script src="https://unpkg.com/chart.js@2.7.1/dist/Chart.bundle.js"></script>
+    <script src="https://unpkg.com/chartkick@2.3.3"></script>
+    <script src="https://unpkg.com/vue-chartkick@0.2.1/dist/vue-chartkick.js"></script>
+
     <link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
 </head>
 
 <body>
     <div id="app">
-        <div class="main">
-            <!-- <toggle-card title="First Card" content="This is a card."></toggle-card> -->
+        <div class="title">
+            <h2>Vektor-Tech</h2>
         </div>
-        <card2 class="ac" title="AC" content="Test card" :forChild="namm" @click="onChildClick"></card2>
+        <div class="main">
+
+            <div class="net-worth-graph">
+                <net-worth-graph></net-worth-graph>
+            </div>
+
+            <div class="card">
+                <expense-card class="test-card" title="Expenses"></expense-card>
+                <income-card class="test-card" title="Income"></income-card>
+            </div>
+            <div class="card">
+                <investment-card class="test-card" title="Investment"></investment-card>
+                <business-card class="test-card" title="Business"></business-card>
+            </div>
+        </div>
     </div>
 </body>
 

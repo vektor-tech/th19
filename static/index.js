@@ -23,17 +23,90 @@ Vue.component('toggle-card', {
     }
 })
 
-Vue.component('card2', {
+// EXPENSE-CARD
+Vue.component('expense-card', {
     props: ['title', 'content'],
     template: `<v-layout>
     <v-flex sm12 offset-sm0>
         <v-card class="card">
             <v-card-title>
-                <h4>{{title}}</h4>
+                <h1>{{title}}</h1>
             </v-card-title>
-            {{content}}
-            {{this.$parent.val}}
+            <h2>$ {{this.$parent.expenses}}</h2>
         </v-card>
+    </v-flex>
+</v-layout>`,
+    data: function () {
+        return {}
+    }
+})
+
+// INCOME-CARD
+Vue.component('income-card', {
+    props: ['title', 'content'],
+    template: `<v-layout>
+    <v-flex sm12 offset-sm0>
+        <v-card class="card">
+            <v-card-title>
+                <h1>{{title}}</h1>
+            </v-card-title>
+            <h2>$ {{this.$parent.income}}</h2>
+        </v-card>
+    </v-flex>
+</v-layout>`,
+    data: function () {
+        return {}
+    }
+})
+
+// INVESTMENT-CARD
+Vue.component('investment-card', {
+    props: ['title', 'content'],
+    template: `<v-layout>
+    <v-flex sm12 offset-sm0>
+        <v-card class="card">
+            <v-card-title>
+                <h1>{{title}}</h1>
+            </v-card-title>
+            <h2>$ {{this.$parent.investment}}</h2>
+        </v-card>
+    </v-flex>
+</v-layout>`,
+    data: function () {
+        return {}
+    }
+})
+
+// BUSINESS-CARD
+Vue.component('business-card', {
+    props: ['title', 'content'],
+    template: `<v-layout>
+    <v-flex sm12 offset-sm0>
+        <v-card class="card">
+            <v-card-title>
+                <h1>{{title}}</h1>
+            </v-card-title>
+            <h2>$ {{this.$parent.business}}</h2>
+        </v-card>
+    </v-flex>
+</v-layout>`,
+    data: function () {
+        return {}
+    }
+})
+
+// NET-WORTH GRAPH
+Vue.component('net-worth-graph', {
+    props: ['title', 'content'],
+    template: `<v-layout>
+    <v-flex sm12 offset-sm0>
+        <v-card>
+            <v-card-title>
+                <h2>NET Worth</h2>
+            </v-card-title>
+            <line-chart :data="this.$parent.lineData"></line-chart>
+        </v-card>
+        <pie-chart :data="this.$parent.pieData" class="pie-chart"></pie-chart>
     </v-flex>
 </v-layout>`,
     data: function () {
@@ -45,11 +118,19 @@ new Vue({
     el: '#app',
     data() {
         return {
-            nam: "TEXT",
-            val: 1,
-            card: true,
-            card2: true,
-            fromC: ''
+            expenses: 1200,
+            income: 2500,
+            investment: 80000,
+            business: 12000,
+
+            input_expense_toggle: true,
+
+            content: 99,
+            lineData: {
+                "Current": 0,
+                "Retire": 100,
+                "Deadd": 10
+            }
         }
     },
     methods: {}

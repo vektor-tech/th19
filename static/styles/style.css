@@ -2,16 +2,52 @@
 
 html {
     font-family: "Play", sans-serif;
-    padding: 20px;
+    padding: 10px;
+    margin: 0 50px 0 50px;
+    background-color: rgb(240, 243, 250);
+}
 
+h2 {
+    margin-left: 18px;
+}
+
+.pie-chart {
+    margin-top: 40px;
+}
+
+.title {
+    text-align: center;
+}
+
+.title:hover {
+    transform: scale(1.02);
+}
+
+.main {
+    margin-top: 40px;
+    display: flex;
+}
+
+.net-worth-graph {
+    width: 550px;
+    margin-left: 70px;
+}
+
+.net-worth-graph:hover {
+    transform: scale(1.008);
 }
 
 .card {
-    text-align: center;
-    font-size: 25px;
-    height: 300px;
+    margin: 0 0 40 40px;
+    width: 250px;
+    height: 250px;
+    border-radius: 10%;
 }
 
-.ac {
-    width: 200px;
+.card:hover {
+    transform: scale(1.008);
+}
+
+.test-card {
+    margin-bottom: 10px;
 }
