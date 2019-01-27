@@ -1,14 +1,16 @@
-import React, { Component } from "react";
+import React from "react";
 import { gql } from "apollo-boost";
 import { Query } from "react-apollo";
 import NetWorthGraph from "./NetWorthGraph";
 import Tile from "./Tile";
 import Header from "./Header";
+import IncomeModal from "./IncomeModal";
+import ExpenseModal from "./ExpenseModal";
 import "../styles/App.css";
 
 export default () => (
   <div>
-    <Query query={HELLO_QUERY}>
+    <Query query={HELLO_QUERY} pollInterval={500}>
       {({ loading, error, data }) => {
         console.log(data);
         if (loading) {
@@ -35,7 +37,7 @@ export default () => (
               {data.user &&
                 data.user.liabilities &&
                 data.user.liabilities.map((item, i) => (
-                  <Tile key={i} item={item.loan} />
+                  <Tile key={i} item={item.loan} negative />
                 ))}
               {data.user && data.user.income && (
                 <Tile item={data.user.income[data.user.income.length - 1]} />
@@ -43,8 +45,11 @@ export default () => (
               {data.user && data.user.expenses && (
                 <Tile
                   item={data.user.expenses[data.user.expenses.length - 1]}
+                  negative
                 />
               )}
+              <IncomeModal />
+              <ExpenseModal />
             </div>
           </div>
         );
