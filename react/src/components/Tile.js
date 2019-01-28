@@ -2,10 +2,10 @@ import React from "react";
 import { Card } from "semantic-ui-react";
 import "../styles/TileGroup.css";
 
-const Tile = ({ item }) => (
+const Tile = ({ item, negative, type }) => (
   <div className="my-card">
-    <Card>
-      <Card.Content header={item.name} />
+    <Card color={negative ? "red" : "green"}>
+      <Card.Content header={`${item.name} - ${type}`} />
       <Card.Content description={`$${item.value / 100}`} />
     </Card>
   </div>
